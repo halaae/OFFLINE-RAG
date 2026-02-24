@@ -1,0 +1,28 @@
+# ── Core RAG ──────────────────────────────────────────────────────────
+faiss-cpu>=1.7.4            # CPU vector store
+# faiss-gpu>=1.7.4          # Uncomment for GPU (install instead of faiss-cpu)
+sentence-transformers>=2.7  # Embeddings + cross-encoder reranker
+rank-bm25>=0.2.2            # Sparse BM25 retrieval
+numpy>=1.26,<2.0
+
+# ── LLM inference ─────────────────────────────────────────────────────
+# CPU install (default):
+llama-cpp-python>=0.2.56
+# GPU/CUDA install (run this instead):
+# CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python --force-reinstall --no-cache-dir
+
+# ── GPU acceleration for embeddings/reranker ──────────────────────────
+torch>=2.0.0               # Auto-detected for GPU embedding + reranking
+# For CUDA 12.x:
+# pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+# ── Utilities ─────────────────────────────────────────────────────────
+tqdm>=4.66
+huggingface-hub>=0.23
+
+# ── Optional: document ingestion ──────────────────────────────────────
+# pypdf2>=3.0               # PDF support
+# python-docx>=1.1          # DOCX support
+
+# ── Optional: encryption ──────────────────────────────────────────────
+# cryptography>=42.0
